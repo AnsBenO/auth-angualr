@@ -13,7 +13,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 export class AppComponent implements OnInit {
   authService = inject(AuthService);
   destroyRef = inject(DestroyRef);
-  title = 'auth-app';
+  title = 'Authentication With Angular ';
 
   ngOnInit(): void {
     this.authService
