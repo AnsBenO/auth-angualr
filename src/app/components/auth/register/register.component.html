@@ -1,0 +1,16 @@
+<h1>register</h1>
+
+<form [formGroup]="registerForm" (submit)="onSubmit()">
+      <div class="form-controle">
+            <input formControlName="username" type="text" />
+      </div>
+      <div class="form-controle">
+            <input formControlName="email" type="text" />
+      </div>
+      <div class="form-controle">
+            <input formControlName="password" type="password" />
+      </div>
+      <div class="form-controle">
+            <button [disabled]="!registerForm.valid" type="submit">register</button>
+      </div>
+</form>
