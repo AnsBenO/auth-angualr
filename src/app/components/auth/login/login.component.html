@@ -1,13 +1,19 @@
-<h1>Login</h1>
+<div class="auth-container">
 
-<form [formGroup]="loginForm" (submit)="onSubmit()">
-      <div class="form-controle">
-            <input formControlName="email" type="text" />
-      </div>
-      <div class="form-controle">
-            <input formControlName="password" type="password" />
-      </div>
-      <div class="form-controle">
-            <button [disabled]="!loginForm.valid" type="submit">Login</button>
-      </div>
-</form>
+      <h1>Login</h1>
+
+      <form [formGroup]="loginForm" (submit)="onSubmit()" class="form">
+            <div class="form-field">
+                  <label for="email">Email:</label>
+                  <input formControlName="email" type="text" id="email" />
+            </div>
+            <div class="form-field">
+                  <label for="password">Password:</label>
+                  <input formControlName="password" type="password" id="password" />
+            </div>
+            <div class="form-actions">
+                  <button [disabled]="!loginForm.valid" type="submit">Login</button>
+            </div>
+      </form>
+
+</div>

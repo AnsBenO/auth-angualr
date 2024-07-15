@@ -2,11 +2,12 @@ import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { NotificationComponent } from './components/notification/notification.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterModule],
+  imports: [RouterOutlet, RouterModule, NotificationComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

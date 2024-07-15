@@ -20,3 +20,11 @@ export interface RegisterBody {
   email: string;
   password: string;
 }
+
+export interface ValidationErrorResponse {
+  errors: Errors;
+}
+
+export interface Errors {
+  [error: string]: string[];
+}

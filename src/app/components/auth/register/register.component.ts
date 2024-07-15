@@ -9,13 +9,14 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
+import { ValidationErrorResponse } from '../../../types/auth';
 
 @Component({
   selector: 'app-register',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css',
+  styleUrl: '../auth.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegisterComponent {
@@ -44,7 +45,9 @@ export class RegisterComponent {
           this.router.navigateByUrl('/');
         },
         error: (error) => {
-          console.error(error);
+          this.authService.validationError.set(
+            error.error as ValidationErrorResponse
+          );
         },
       });
   }

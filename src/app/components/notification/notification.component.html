@@ -1,0 +1,11 @@
+<!-- @if(errors()){ -->
+<div class="error-notifications">
+      @for(error of errors(); track $index){
+      <div class="notification" [ngClass]="{ 'slide-in': !removingErrors(), 'slide-out': removingErrors() }">
+
+            <p>{{error}}</p>
+      </div>
+
+      }
+</div>
+<!-- } -->

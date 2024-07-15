@@ -15,13 +15,14 @@ import {
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ValidationErrorResponse } from '../../../types/auth';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
+  styleUrl: '../auth.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent implements OnInit {
@@ -44,9 +45,15 @@ export class LoginComponent implements OnInit {
 
           this.authService.setAuthToken(response.user.token);
           this.authService.currentUser.set(response.user);
+          this.authService.validationError.set(null);
           this.router.navigateByUrl('/');
         },
-        error: (error) => console.error(error),
+        error: (error) => {
+          console.error('validation error - - > ', error.error);
+          this.authService.validationError.set(
+            error.error as ValidationErrorResponse
+          );
+        },
       });
   }
   ngOnInit(): void {
