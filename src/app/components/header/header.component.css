@@ -1,0 +1,42 @@
+:host {
+  display: block;
+}
+
+/* Basic reset */
+ul {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Aligns items to the right */
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #e9ecef;
+  padding: 10px 20px;
+}
+
+/* Links and buttons */
+ul li {
+  margin-left: 20px;
+}
+
+ul a,
+ul button {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  background-color: #ffffff;
+  border: 1px solid #007bff; /* Make border consistent */
+  cursor: pointer;
+  display: inline-block; /* Ensures button and link have the same box model */
+}
+
+/* Hover effects */
+ul a:hover,
+ul button:hover {
+  background-color: #007bff;
+  color: #ffffff;
+  border-color: #007bff;
+}

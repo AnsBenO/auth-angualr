@@ -1,0 +1,8 @@
+<ul>
+      @if (!isAuthenticated ) {
+      <li><a routerLink="/login">login</a></li>
+      <li><a routerLink="/register">register</a></li>
+      } @if(isAuthenticated){
+      <li><button (click)="logout()">logout</button></li>
+      }
+</ul>

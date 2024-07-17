@@ -1,21 +1,8 @@
 <main>
 
   <header>
-    <ul>
-      @if (authService.currentUser() === null ) {
-      <li><a routerLink="/login">login</a></li>
-      <li><a routerLink="/register">register</a></li>
-      } @if(authService.currentUser() !== null && authService.currentUser() !== undefined){
-      <li><button (click)="logout()">logout</button></li>
-      Hello
-      {{
-      authService.currentUser()?.username
-      }}
-      }
-    </ul>
-
+    <app-header [isAuthenticated]="!!authService.currentUser()" (onLogout)="logout()" />
   </header>
-
 
   <router-outlet />
   <app-notification />

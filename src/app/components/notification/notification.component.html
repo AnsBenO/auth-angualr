@@ -1,11 +1,12 @@
-<!-- @if(errors()){ -->
+@if(errors()){
+
 <div class="error-notifications">
       @for(error of errors(); track $index){
-      <div class="notification" [ngClass]="{ 'slide-in': !removingErrors(), 'slide-out': removingErrors() }">
-
+      <div [ngStyle]="{'animation-delay': (($index + 0.05) / 10 ) + 's'}" [ngClass]="{'slide-out': removingErrors() }"
+            class="notification">
             <p>{{error}}</p>
       </div>
 
       }
 </div>
-<!-- } -->
+}

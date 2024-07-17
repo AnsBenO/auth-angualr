@@ -21,6 +21,7 @@ export class NotificationComponent {
   authService = inject(AuthService);
   errors: WritableSignal<string[]> = signal([]);
   removingErrors: WritableSignal<boolean> = signal(false);
+
   errorEffect = effect(
     () => {
       const errorResponse = this.authService.validationError();
@@ -37,8 +38,8 @@ export class NotificationComponent {
           setTimeout(() => {
             this.errors.set([]);
             this.removingErrors.set(false);
-          }, 500);
-        }, 5000);
+          }, 700);
+        }, 7000);
       }
     },
     { allowSignalWrites: true }

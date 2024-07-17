@@ -1,6 +1,4 @@
 .error-notifications {
-  display: flex;
-  flex-direction: column;
   position: fixed;
   top: 16px;
   right: 16px;
@@ -8,41 +6,41 @@
 }
 .notification {
   padding: 16px;
+  margin-bottom: 10px;
   background-color: #f8d7da;
   color: #721c24;
   border: 1px solid #f5c6cb;
   border-radius: 4px;
-
   width: 300px;
   z-index: 1000;
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out;
+  animation: slideIn 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 /*  keyframes for sliding in and out */
 @keyframes slideIn {
   from {
-    transform: translateX(100%);
+    transform: translateX(120%);
+    opacity: 0;
   }
   to {
     transform: translateX(0);
+    opacity: 1;
   }
 }
 
 @keyframes slideOut {
   from {
     transform: translateX(0);
+    opacity: 1;
   }
   to {
-    transform: translateX(110%);
+    transform: translateX(100%);
+    opacity: 0;
   }
 }
 
 /* Apply the animations */
-.slide-in {
-  animation: slideIn 0.5s forwards;
-}
 
 .slide-out {
-  animation: slideOut 0.5s forwards;
+  animation: slideOut 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }

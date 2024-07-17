@@ -1,0 +1,14 @@
+@if (!!authService.currentUser()) {
+
+<div class="user-detail-card">
+      <div class="user-image">
+            <img [src]="authService.currentUser()?.image" alt="{{ authService.currentUser()?.username }}" />
+      </div>
+      <div class="user-info">
+            <h2>{{ authService.currentUser()?.username }}</h2>
+            <p class="user-email">{{ authService.currentUser()?.email }}</p>
+            <p class="user-bio">{{ authService.currentUser()?.bio || 'No bio available' }}</p>
+      </div>
+</div>
+
+}
